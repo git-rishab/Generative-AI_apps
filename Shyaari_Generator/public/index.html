@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shayari Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 10px;
+      padding: 10px;
+      resize: none;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shayari Generator</h1>
+    <textarea id="inputText" placeholder="Enter your words here"></textarea>
+    <button onclick="generateShayari()">Generate</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const url = "http://localhost:5000";
+    function generateShayari() {
+      var inputText = document.getElementById("inputText").value;
+
+      // Make a request to the backend server
+      fetch(`${url}/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: inputText })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Display the generated shayari on the page
+        const { message } = data;
+        const lines = message.split("\n");
+        var resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "<strong>Generated Shayari:</strong><br>"
+        lines.forEach(el => {
+            const p = document.createElement("p");
+            p.innerHTML = el;
+            resultDiv.append(p);
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>
