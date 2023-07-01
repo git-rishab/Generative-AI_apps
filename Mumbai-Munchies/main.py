@@ -28,7 +28,7 @@ def update() :
     userInput = input("Enter snack id :")
     if userInput in snacks :
         availability = input("Enter updated stock: ")
-        snacks[userInput]["availability"] = availability
+        snacks[userInput]["availability"] = int(availability)
         print(f"{snacks[userInput]['name']}'s inventory has been updated!")
         return operation()
     else :
