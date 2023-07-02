@@ -65,13 +65,17 @@
         },
         body: JSON.stringify({ message: inputText })
       })
-      .then(response => response.json())
+      .then(response => {
+        if(response.status == 429){
+          return alert("You have reached the limit, please wait 5 minutes to make another request.")
+        } else {
+          return response.json()
+        }
+      })
       .then(data => {
         // Display the generated shayari on the page
         const { message } = data;
-        if(!data.ok){
-          return alert("You have reached the limit, please wait 3 minutes to make another request.")
-        }
+        console.log(data);
         const lines = message.split("\n");
         var resultDiv = document.getElementById("result");
         resultDiv.innerHTML = "<strong>Generated Shayari:</strong><br>"
