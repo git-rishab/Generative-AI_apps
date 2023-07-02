@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code Playground</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <h1>Code Playground</h1>
+
+    <div id="textarea">
+        <label for="code">Code:</label>
+        <textarea id="code" rows="10" cols="50"></textarea>
+    </div>
+
+    <div id="form">
+        <label for="language">Convert to:</label>
+        <select id="language">
+            <option value="">Select Language</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+            <option value="c++">C++</option>
+            <option value="ruby">Ruby</option>
+          <!-- Add more language options as needed -->
+        </select>
+        <div id="btns">
+            <button id="convertBtn">Convert Code</button>
+            <button id="debugBtn">Debug Code</button>
+            <button id="checkQualityBtn">Check Code Quality</button>
+        </div>
+    </div>
+
+    <div id="loader" style="display: none">Loading...</div>
+    <h1>Result</h1>
+    <div id="result"></div>
+  </body>
+  <script src="./scripts/index.js"></script>
+</html>
