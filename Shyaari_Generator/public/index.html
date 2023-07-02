@@ -69,6 +69,9 @@
       .then(data => {
         // Display the generated shayari on the page
         const { message } = data;
+        if(!data.ok){
+          return alert("You have reached the limit, please wait 3 minutes to make another request.")
+        }
         const lines = message.split("\n");
         var resultDiv = document.getElementById("result");
         resultDiv.innerHTML = "<strong>Generated Shayari:</strong><br>"

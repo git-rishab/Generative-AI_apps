@@ -1,11 +1,19 @@
 const express = require("express");
 const cors = require('cors');
+const rateLimit = require("express-rate-limit");
 const { Configuration, OpenAIApi } = require('openai');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const limiter = rateLimit({
+	windowMs: 3 * 60 * 1000, // 5 minutes
+	max: 3, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
 
 app.get("/", (req, res) => {
   try {
@@ -16,7 +24,7 @@ app.get("/", (req, res) => {
 })
 
 // Handle incoming messages
-app.post('/message', async (req, res) => {
+app.post('/message', limiter,async (req, res) => {
   const { message } = req.body;
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -37,9 +45,9 @@ app.post('/message', async (req, res) => {
       model: "gpt-3.5-turbo",
       messages: prompt,
     });
-    res.send({ message: completion.data.choices[0].message.content });
+    res.send({ ok:true,message: completion.data.choices[0].message.content });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ ok:false,error: error.message });
   }
 });
 
