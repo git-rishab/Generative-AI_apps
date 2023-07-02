@@ -3,7 +3,7 @@ const debugBtn = document.getElementById('debugBtn');
 const checkQualityBtn = document.getElementById('checkQualityBtn');
 const loader = document.getElementById('loader');
 const result = document.getElementById('result');
-const url = "http://localhost:5000"
+const url = "https://code-converter-i27u.onrender.com"
 
 convertBtn.addEventListener('click', async() => {
     const code = document.getElementById('code').value;
