@@ -6,7 +6,7 @@ import { notification } from './notification';
 
 export default function Dish({ close }) {
     const [visible, { toggle }] = useDisclosure(false);
-    const url = "http://localhost:5000"
+    const url = "https://tasty-bites.onrender.com"
     const form = useForm({
         initialValues: {
             name: '',

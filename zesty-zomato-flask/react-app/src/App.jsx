@@ -9,7 +9,7 @@ import Order from './Order';
 import logo from "./assets/logo-2.png"
 
 function App() {
-  const url = 'http://localhost:5000'
+  const url = 'https://tasty-bites.onrender.com'
   const [data, setData] = useState([])
   const [orders, setOrders] = useState([])
   const [opened, { open, close }] = useDisclosure(false);

@@ -8,7 +8,7 @@ export default function Order({ close }) {
     const [count, handlers] = useCounter(0, { min: 0, max: 10 });
     const [inputValue, setInputValue] = useState('');
     const [visible, { toggle }] = useDisclosure(false);
-    const url = "http://localhost:5000"
+    const url = "https://tasty-bites.onrender.com"
 
     const handleOrder = async() => {
         if(!count || !inputValue){
