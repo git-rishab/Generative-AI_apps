@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Operations</title>
+  <style>
+    /* CSS styling for the form and buttons */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CRUD Operations</h1>
+  
+  <form id="myForm">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit" id="create">Create</button>
+    <button type="button" id="read">Read</button>
+    <button type="button" id="update">Update</button>
+    <button type="button" id="delete">Delete</button>
+  </form>
+  
+  <script>
+    const url = "http://localhost:5000"
+    // JavaScript code to handle button clicks and form submission
+    document.getElementById("create").addEventListener("click",async function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get the form values
+      var id = document.getElementById("id").value;
+      var name = document.getElementById("name").value;
+      
+      const req = await fetch(`${url}/create`,{
+        method:"POST",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify({id,name})
+      })
+      const res = await req.json()
+      alert("Data uploaded successfully")
+      document.getElementById("myForm").reset();
+    });
+    
+    document.getElementById("read").addEventListener("click",async function(event) {
+      event.preventDefault(); // Prevent form submission
+      const req = await fetch(`${url}/read`)
+      const res = await req.json()
+      console.log(res);      
+    });
+    
+    document.getElementById("update").addEventListener("click",async function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get the ID from the user
+      var id = prompt("Enter ID:");
+      var name = prompt("Enter Name:");
+      const req = await fetch(`${url}/update/${id}`,{
+        method:"PATCH",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify({id,name})
+      })
+      const res = await req.json()
+      alert("Data updated")
+      // Perform update operation - you can make an API request here
+      // ...
+    });
+    
+    document.getElementById("delete").addEventListener("click",async function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get the ID from the user
+      var id = prompt("Enter ID:");
+      const req = await fetch(`${url}/delete/1`,{
+        method:"DELETE",
+        headers:{
+            "content-type":"application/json"
+        }
+      })
+      const res = await req.json()
+      alert("Data Deleted")
+      // Perform delete operation - you can make an API request here
+      // ...
+    });
+  </script>
+</body>
+</html>
