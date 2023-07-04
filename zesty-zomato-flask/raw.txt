@@ -1,0 +1,13 @@
+Add a Dish
+{
+    "name":"biryani",
+    "price":150,
+    "quantity":10
+}
+
+place a order 
+{
+    "name":"rishab",
+    "dish": 1,
+    "quantity": 5
+}

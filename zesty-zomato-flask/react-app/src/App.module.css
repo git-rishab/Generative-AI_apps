@@ -1,0 +1,91 @@
+/* Global styles */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+body::after {
+    content: "";
+    background-image: url("https://www.svapinfotech.com/data/media/orginal/food-delivery-2-5459.jpg");
+    background-size: cover;
+    background-position: center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    /* Set the desired opacity value */
+    pointer-events: none;
+    z-index: -1;
+}
+
+header span {
+    color: #a054da;
+    text-align: center;
+    font-size: 25px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.logo{
+    width: 80px;
+    height: 70px;
+}
+h2{
+    color: rgb(16, 76, 241);
+    text-align: center;
+    margin: 25px 0;
+}
+header {
+    background-color: #f1e9f7;
+    position: relative;
+    top: 0;
+    padding: 1rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.child{
+    min-width: 20rem;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.remove{
+    color: rgb(204, 50, 50);
+    background-color: rgb(238, 207, 207);
+    margin-top: 0px;
+}
+.remove:hover{
+    background-color: rgb(228, 198, 198);
+}
+.button{
+    text-align: center;
+}
+
+.empty{
+    color: #EF5350;
+    text-align: center;
+}
