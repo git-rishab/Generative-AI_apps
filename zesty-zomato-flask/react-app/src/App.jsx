@@ -48,7 +48,6 @@ function App() {
     get()
   }, [url, opened, request, addDish])
 
-
   return (
     <>
       <header>
@@ -77,7 +76,7 @@ function App() {
                 <Button variant="light" color="blue" fullWidth mt="md" onClick={() => { open(); sessionStorage.setItem('dish', JSON.stringify(el)) }} radius="md">
                   Order
                 </Button>
-                <Button className={styles.remove} variant="light" color="blue" fullWidth mt="md" radius="md" onClick={()=>handleRemove(el.dish)}>
+                <Button className={styles.remove} variant="light" color="blue" fullWidth mt="md" radius="md" onClick={()=>handleRemove(el._id)}>
                   Remove
                 </Button>
               </Card>
@@ -135,7 +134,7 @@ function App() {
                     { value: 'ready for pickup', label: 'Ready for pickup' },
                     { value: 'delivered', label: 'Delivered' }
                   ]}
-                  onChange={(value) => handleStatusChange(value, el.id)}
+                  onChange={(value) => handleStatusChange(value, el._id)}
                 />
               </Card>
 

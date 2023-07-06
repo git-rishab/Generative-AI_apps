@@ -20,7 +20,7 @@ export default function Order({ close }) {
             headers:{
                 "content-type":"application/json"
             },
-            body:JSON.stringify({dish:dish.dish, name:inputValue, quantity:count, dishName:dish.name, price:dish.price})
+            body:JSON.stringify({dish:dish._id, name:inputValue, quantity:count, dishName:dish.name, price:dish.price})
         })
         const res = await req.json()
         if(res.ok){
