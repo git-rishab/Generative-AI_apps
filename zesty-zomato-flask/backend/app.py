@@ -1,15 +1,16 @@
 from flask import Flask, jsonify, request
 from re import match
 from flask_cors import CORS
-# from flask_socketio import SocketIO, send, emit
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import os
 
 
 app = Flask(__name__)
 CORS(app)
 # app.config['SECRET_KEY'] = 'your-secret-key'
-url = "mongodb+srv://mongo-rishab:RishabxEmpty1@cluster0.o6kwmun.mongodb.net/zomato?retryWrites=true&w=majority"
+url = os.getenv('MONGO')
 
 # socketio = SocketIO(app)
 
