@@ -7,6 +7,11 @@
 ## Code Converter
 - Visit: https://masai-code-converter.netlify.app
 ## Zesty-zomato
-- Mini food order application using python
+- Mini food order application using python ( CLI Application )
+- Mini food order Full Stack application
+  - Tech Stacks:
+    - Backend: Flask
+    - Frontend: React, Mantine UI
+  - Visit: https://tasty-bytes.vercel.app
 ## Mumbai-Munchies
 - Mini order sales management system using python
