@@ -7,7 +7,10 @@ Add a Dish
 
 place a order 
 {
-    "name":"rishab",
-    "dish": 1,
-    "quantity": 5
+    "name": "Rishab",
+    "dishName": "Chicken Biryani",
+    "price": 180,
+    "quantity": 1,
+    "status": "received",
+    "dish": "64a6c3240d5e7c0900b3a802"
 }
