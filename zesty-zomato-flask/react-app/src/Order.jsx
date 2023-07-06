@@ -2,13 +2,12 @@ import { Group, Button, Text, TextInput, LoadingOverlay } from '@mantine/core';
 import { useCounter, useDisclosure } from '@mantine/hooks';
 import { useState } from 'react'
 import styles from "./App.module.css";
-import { notification } from "./notification"
+import { notification, url } from "./notification"
 
 export default function Order({ close }) {
     const [count, handlers] = useCounter(0, { min: 0, max: 10 });
     const [inputValue, setInputValue] = useState('');
     const [visible, { toggle }] = useDisclosure(false);
-    const url = "https://tasty-bites.onrender.com"
 
     const handleOrder = async() => {
         if(!count || !inputValue){

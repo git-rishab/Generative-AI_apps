@@ -1,4 +1,5 @@
 import { notifications } from '@mantine/notifications';
+const url = "https://tasty-bites.onrender.com";
 
 function notification(title, message, textColor, bgColor) {
     notifications.show({
@@ -27,5 +28,6 @@ function notification(title, message, textColor, bgColor) {
 }
 
 export {
-    notification
+    notification,
+    url
 }

@@ -4,12 +4,11 @@ import { Card, Text, Button, Group, Modal, Select } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
 import Dish from "./Dish"
-import { notification } from './notification';
+import { notification, url } from './notification';
 import Order from './Order';
 import logo from "./assets/logo-2.png"
 
 function App() {
-  const url = 'https://tasty-bites.onrender.com'
   const [data, setData] = useState([])
   const [orders, setOrders] = useState([])
   const [opened, { open, close }] = useDisclosure(false);

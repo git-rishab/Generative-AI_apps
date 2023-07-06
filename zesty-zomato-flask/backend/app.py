@@ -1,9 +1,47 @@
 from flask import Flask, jsonify, request
 from re import match
 from flask_cors import CORS
+from flask_socketio import SocketIO, send, emit
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 CORS(app)
+app.config['SECRET_KEY'] = 'your-secret-key'
+app.config['MONGO_URI'] = 'mongodb+srv://mongo-rishab:RishabxEmpty1@cluster0.o6kwmun.mongodb.net/'
+
+socketio = SocketIO(app)
+mongo = PyMongo(app)
+db = cluster['zomato']
+collection = db['dishes']
+collection = db['orders']
+
+# Schema definitions
+dishes_schema = {
+    'id': {'type': 'int'},
+    'name': {'type': 'string'},
+    'price': {'type': 'float'},
+    'availability': {'type': 'bool'},
+    'rating': {'type': 'int'},
+    'reviews': {'type': 'array'}
+}
+
+orders_schema = {
+    'id': {'type': 'int'},
+    'customer_name': {'type': 'string'},
+    'status': {'type': 'string', 'default': 'received'},
+    'items': {
+        'type': 'list',
+        'schema': {
+            'type': 'dict',
+            'schema': {
+                'dish_id': {'type': 'int'},
+                'dish_name': {'type': 'string'}
+            }
+        }
+    },
+    'total_price': {'type': 'float', 'nullable': True}
+}
+
 menu = {
     1 :{
         'name':'Chicken Biryani',
@@ -111,6 +149,22 @@ def get_orders():
         temp['id'] = key
         data.append(temp)
     return jsonify({"ok":True, 'data':data})
+
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
+
+@socketio.on('order_status_update')
+def handle_order_status_update(order_id, new_status):
+    # Handle the order status update here
+    # You can update the order status in the database or perform any other actions
+
+    # Broadcast the updated order status to all connected clients
+    emit('order_status_updated', {'order_id': order_id, 'new_status': new_status}, broadcast=True)
 
 if __name__ == '__main__':
     app.run()
