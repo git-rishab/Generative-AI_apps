@@ -8,7 +8,7 @@ def get_menu():
     # Convert ObjectId to string representation
     for item in data:
         item['_id'] = str(item['_id'])
-    return jsonify({"ok":True, 'data':data})
+    return jsonify({"ok":True, 'data':data}), 200
 
 # Add a Dish
 def add_dish():
