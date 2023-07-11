@@ -1,5 +1,5 @@
 import { notifications } from '@mantine/notifications';
-const url = "https://tasty-bites.onrender.com";
+const url = "http://localhost:5000";
 
 function notification(title, message, textColor, bgColor) {
     notifications.show({

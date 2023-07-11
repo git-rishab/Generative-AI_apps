@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import { LoadingOverlay, TextInput, NumberInput, Button } from '@mantine/core';
-import { notification, url } from './notification';
+import { notification, url } from '../notification';
 
 export default function Dish({ close }) {
     const [visible, { toggle }] = useDisclosure(false);

@@ -3,9 +3,9 @@ import styles from "./App.module.css";
 import { Card, Text, Button, Group, Modal, Select } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
-import Dish from "./Dish"
+import Dish from "./components/Dish"
 import { notification, url } from './notification';
-import Order from './Order';
+import Order from './components/Order';
 import logo from "./assets/logo-2.png"
 
 function App() {

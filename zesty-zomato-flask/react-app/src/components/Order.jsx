@@ -1,8 +1,8 @@
 import { Group, Button, Text, TextInput, LoadingOverlay } from '@mantine/core';
 import { useCounter, useDisclosure } from '@mantine/hooks';
 import { useState } from 'react'
-import styles from "./App.module.css";
-import { notification, url } from "./notification"
+import styles from "../App.module.css";
+import { notification, url } from "../notification"
 
 export default function Order({ close }) {
     const [count, handlers] = useCounter(0, { min: 0, max: 10 });
