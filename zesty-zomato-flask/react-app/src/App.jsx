@@ -6,7 +6,8 @@ import { Notifications } from '@mantine/notifications';
 import Dish from "./components/Dish"
 import { notification, url } from './notification';
 import Order from './components/Order';
-import logo from "./assets/logo-2.png"
+import logo from "./assets/logo-2.png";
+import Chat from "./components/Chat";
 
 function App() {
   const [data, setData] = useState([])
@@ -142,6 +143,7 @@ function App() {
           }) : <p className={styles.empty}>No orders!</p>
         }
       </div>
+      <Chat />
     </>
   )
 }
