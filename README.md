@@ -15,3 +15,5 @@
   - Visit: https://tasty-bytes.vercel.app
 ## Mumbai-Munchies
 - Mini order sales management system using python
+## Rock Paper Scissor AI based Game
+- Visit: https://rps-ai-game.vercel.app/
