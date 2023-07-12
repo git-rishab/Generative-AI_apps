@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissor Game</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div id="header-ready">
+            <p>Ready to play</p>
+            <p>Rock Paper Scissors?</p>
+        </div>
+        <div id="header-buttons">
+            <div id="camera" onclick="init()">Enable Camera</div>
+            <div id="check">Play</div>
+        </div>
+    </div>
+    <div id="main">
+        <div>
+            <div>Human Score: <span id="userScore">0</span> pts</div>
+            <div>Robot Score: <span id="robotScore">0</span> pts</div>
+        </div>
+        <div>
+            <div>
+                <div id="outer-canvas"><canvas id="canvas"></canvas></div>
+                <div id="label-container"></div>
+                <div class="choice"><img id="user" src="" alt=""></div> 
+            </div>
+            <div id="mid-div">
+                <div id="countdown"></div>
+                <p id="result"></p>
+            </div>
+            <div>
+                <div><img src="./images/robot.svg" alt=""></div>
+                <div class="choice"><img id="robot" src="" alt=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./scripts/index.js"></script>
+</html>
