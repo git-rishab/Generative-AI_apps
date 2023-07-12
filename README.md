@@ -6,6 +6,8 @@
 - Visit: https://shyaari-generator.onrender.com
 ## Code Converter
 - Visit: https://masai-code-converter.netlify.app
+## Rock Paper Scissor AI based Game
+- Visit: https://rps-ai-game.vercel.app/
 ## Zesty-zomato
 - Mini food order application using python ( CLI Application )
 - Mini food order Full Stack application
@@ -15,5 +17,3 @@
   - Visit: https://tasty-bytes.vercel.app
 ## Mumbai-Munchies
 - Mini order sales management system using python
-## Rock Paper Scissor AI based Game
-- Visit: https://rps-ai-game.vercel.app/
