@@ -1,0 +1,59 @@
+<style>
+  .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+form {
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+h2{
+  text-align: center;
+}
+</style>
+<h2>Create Todo</h2>
+
+<div class="form-container">
+  <form (submit)="createTodo()">
+    <div>
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="title" name="title" required>
+    </div>
+    <div>
+      <label>Description:</label>
+      <textarea [(ngModel)]="description" name="description" required></textarea>
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>
