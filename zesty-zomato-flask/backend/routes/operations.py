@@ -1,6 +1,7 @@
 from flask import jsonify, request
 from bson.objectid import ObjectId
 from models.database import menu, orders, users
+from bardapi import Bard
 import openai
 import os
 
@@ -86,3 +87,9 @@ def get_orders():
         item["dish"] = str(item["dish"])
     return jsonify({"ok": True, "data": data})
 
+# Testing Bard AI
+def test_bard():
+    userPrompt = request.get_json()['prompt']
+    token = os.getenv('BARDAI_API_KEY')
+    response = Bard(token=token).get_answer(userPrompt)['content']
+    return jsonify({'ok':True, 'response':response})

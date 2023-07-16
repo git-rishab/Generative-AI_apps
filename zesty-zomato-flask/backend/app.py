@@ -11,10 +11,12 @@ from routes.operations import (
     order,
     update_order,
     get_orders,
+    test_bard
 )
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import os
+import openai
 
 app = Flask(__name__)
 CORS(app)
@@ -35,6 +37,7 @@ app.route("/update/stock", methods=["PATCH"])(update_menu)
 app.route("/order", methods=["POST"])(order)
 app.route("/order/status", methods=["PATCH"])(update_order)
 app.route("/orders", methods=["GET"])(get_orders)
+app.route("/bard", methods=['POST'])(test_bard)
 
 
 @app.route("/chat", methods=["POST"])
